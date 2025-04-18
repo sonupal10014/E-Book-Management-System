@@ -382,10 +382,12 @@ public class BookDAOImpl implements BookDAO {
 		BookDtls b = null;
 		try {
 
-			String sql = "select * from book_dtls where bookname like ? or author like ? or bookCategory like ? and status=? ";
+			String sql = "select * from book_dtls where bookname like ? or author like ? or bookCategory like ? and status like ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, "New");
-			ps.setString(2, "Active");
+			ps.setString(1, "%"+ch+"%");
+			ps.setString(2, "%"+ch+"%");
+			ps.setString(3, "%"+ch+"%");
+	        ps.setString(4, "active"); 
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -440,23 +442,23 @@ public class BookDAOImpl implements BookDAO {
 		return list;
 	}
 //
-	public List<Feedback> getAllFeedbackByBook(int bookId) {
-		List<Feedback> list = new ArrayList<Feedback>();
-		Feedback f = null;
-		try {
-
-			String sql = "select * from feedback where bookId=? order by id desc";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, bookId);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				f = new Feedback(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
-				list.add(f);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
+//	public List<Feedback> getAllFeedbackByBook(int bookId) {
+//		List<Feedback> list = new ArrayList<Feedback>();
+//		Feedback f = null;
+//		try {
+//
+//			String sql = "select * from feedback where bookId=? order by id desc";
+//			PreparedStatement ps = conn.prepareStatement(sql);
+//			ps.setInt(1, bookId);
+//			ResultSet rs = ps.executeQuery();
+//			while (rs.next()) {
+//				f = new Feedback(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+//				list.add(f);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return list;
+//	}
 
 }

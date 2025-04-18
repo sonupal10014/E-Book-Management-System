@@ -1,3 +1,4 @@
+
 package com.DAO;
 
 import java.sql.Connection;
@@ -6,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.entity.BookDtls;
 import com.entity.Cart;
 
 public class CartDAOImpl implements CartDAO {
@@ -56,10 +55,8 @@ public class CartDAOImpl implements CartDAO {
 				c.setBookName(rs.getString(4));
 				c.setAuthor(rs.getString(5));
 				c.setPrice(rs.getDouble(6));
-
 				totalPrice = totalPrice + rs.getDouble(7);
 				c.setTotalPrice(totalPrice);
-
 				list.add(c);
 			}
 		} catch (Exception e) {
@@ -69,7 +66,6 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	public boolean deleteBook(int bid, int uid, int cid) {
-
 		boolean f = false;
 		try {
 			String sql = "delete from cart where bid=? and uid=? and cid=?";
@@ -83,6 +79,22 @@ public class CartDAOImpl implements CartDAO {
 				f = true;
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return f;
+	}
+
+	public boolean deleteBook(int userId) {
+		boolean f = false;
+		try {
+			String sql = "DELETE FROM cart WHERE uid=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userId);
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				f = true;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return f;
@@ -103,5 +115,7 @@ public class CartDAOImpl implements CartDAO {
 		}
 		return i;
 	}
-
 }
+
+
+

@@ -37,7 +37,7 @@ public class BookOrderImpl implements BookOrderDAO {
 		boolean f = false;
 		try {
 
-			String sql = "insert into book_order(order_id,user_name,email,address,phno,book_name,author,price,payment) values(?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into book_order(order_id,user_name,email,address,phone,book_name,author,price,payment) values(?,?,?,?,?,?,?,?,?)";
 
 			conn.setAutoCommit(false);
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -62,6 +62,7 @@ public class BookOrderImpl implements BookOrderDAO {
 			conn.commit();
 			f = true;
 			conn.setAutoCommit(true);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,15 +124,47 @@ public class BookOrderImpl implements BookOrderDAO {
 		return list;
 	}
 
+//	public List<Book_Order> getAllOrder() {
+//		List<Book_Order> list = new ArrayList<Book_Order>();
+//		Book_Order o = null;
+//
+//		try {
+//
+//			String sql = "select * from book_order where email=? ";
+//			PreparedStatement ps = conn.prepareStatement(sql);
+//			ps.setString(1,  Email);		
+//			ResultSet rs = ps.executeQuery();
+//			while (rs.next()) {
+//				o = new Book_Order();
+//				o.setId(rs.getInt(1));
+//				o.setOrderId(rs.getString(2));
+//				o.setUserName(rs.getString(3));
+//				o.setEmail(rs.getString(4));
+//				o.setFulladd(rs.getString(5));
+//				o.setPhno(rs.getString(6));
+//				o.setBookName(rs.getString(7));
+//				o.setAuthor(rs.getString(8));
+//				o.setPrice(rs.getString(9));
+//				o.setPaymentType(rs.getString(10));
+//				
+//				list.add(o);
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return list;
+//	}
+
+	
 	public List<Book_Order> getAllOrder() {
 		List<Book_Order> list = new ArrayList<Book_Order>();
 		Book_Order o = null;
 
 		try {
-
-			String sql = "select * from book_order where email=? ";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1,  Email);		
+			String sql = "select * from book_order";
+			PreparedStatement ps = conn.prepareStatement(sql);	
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				o = new Book_Order();
@@ -145,7 +178,7 @@ public class BookOrderImpl implements BookOrderDAO {
 				o.setAuthor(rs.getString(8));
 				o.setPrice(rs.getString(9));
 				o.setPaymentType(rs.getString(10));
-				
+
 				list.add(o);
 			}
 
