@@ -442,6 +442,30 @@ public class BookDAOImpl implements BookDAO {
 		return list;
 	}
 //
+//	@Override
+//	public List<Feedback> getAllFeedbackByBook(int bookId) {
+//	    List<Feedback> feedbackList = new ArrayList<>();
+//	    try {
+//	        String sql = "SELECT * FROM feedback WHERE bookId=?";
+//	        PreparedStatement ps = conn.prepareStatement(sql);
+//	        ps.setInt(1, bookId);
+//	        ResultSet rs = ps.executeQuery();
+//	        
+//	        while (rs.next()) {
+//	            Feedback feedback = new Feedback();
+//	            feedback.setFeedbackId(rs.getInt("feedbackId"));
+//	            feedback.setBookId(rs.getInt("bookId"));
+//	            feedback.setFeedbackText(rs.getString("feedbackText"));
+//	            feedback.setUserEmail(rs.getString("userEmail"));
+//	            feedback.setDate(rs.getDate("feedbackDate"));
+//	            feedbackList.add(feedback);
+//	        }
+//	    } catch (SQLException e) {
+//	        e.printStackTrace();
+//	    }
+//	    return feedbackList;
+//	}
+
 //	public List<Feedback> getAllFeedbackByBook(int bookId) {
 //		List<Feedback> list = new ArrayList<Feedback>();
 //		Feedback f = null;

@@ -172,25 +172,6 @@
 					</form>
 					<hr>
 
-					<%
-					BookDAO dao2 = new BookDAOImpl(DBConnect.getConn());
-					UserDAO dao3 = new UserDAOImpl(DBConnect.getConn());
-					List<Feedback> list = dao2.getAllFeedbackByBook(bid);
-					for (Feedback fed : list) {
-						User usx = dao3.getUserById(fed.getUserId());
-					%>
-					<div class="row">
-						<div class="col-md-12">
-							<i class="fas fa-user-circle fa-2x"></i> <span class="ml-3 "
-								style="font-size: 20px;"><%=usx.getName()%></span>
-
-						</div>
-						<div class="col-md-12 mt-1"><%=fed.getComment()%></div>
-					</div>
-					<hr>
-					<%
-					}
-					%>
 
 
 
