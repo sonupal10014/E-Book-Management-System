@@ -441,7 +441,19 @@ public class BookDAOImpl implements BookDAO {
 		}
 		return list;
 	}
-//
+	@Override
+	public List<Feedback> getAllFeedbackByBook(int bookId) {
+	    // Temporary dummy implementation to fix compile error
+	    return new ArrayList<>();
+	}
+
+	
+//	@Override
+//	public List<Feedback> getAllFeedbackByBook(int bookId) {
+//	    
+//	    return null;
+//	}
+//	
 //	@Override
 //	public List<Feedback> getAllFeedbackByBook(int bookId) {
 //	    List<Feedback> feedbackList = new ArrayList<>();

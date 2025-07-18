@@ -10,5 +10,6 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1732256073696_3" label="Window Working Set" name="Aggregate for window 1732256073696"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1732256256378_4" label="Window Working Set" name="Aggregate for window 1732256256378"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1732256711770_6" label="Window Working Set" name="Aggregate for window 1732256711770"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1746246395715_7" label="Window Working Set" name="Aggregate for window 1746246395715"/>
 <mruList name="abc"/>
 </workingSetManager>
